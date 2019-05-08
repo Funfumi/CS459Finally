@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <ul>
+  {% for i in items %}
+    <div class="card" style="width:200px">
+        <img class="card-img-top" src="{{i.image.url}}" alt="Card image">
+        <div class="card-body">
+            <h4 class="card-title">{{ i.name }}</h4>
+            <p class="card-text">{{ i.description }}</p>
+            <a href="#" class="btn btn-primary">buy</a>
+        </div>
+    </div>
+  {% endfor %}
+  </ul>
+{% endblock %}

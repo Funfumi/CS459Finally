@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  <script src="{% static "js/jquery.min.js" %}"></script>
+  <script src="{% static "js/popper.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  {% block custom_css %}
+  {% endblock %}
+</head>
+<body> 
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height: 170px;">
+  
+<!-- Brand/logo -->
+  <a class="navbar-brand" href="#">
+    <img src="https://pngimage.net/wp-content/uploads/2018/06/fruit-logo-png-8.png"  alt="logo" style="margin-top: -40px; width: 100px" , style=text-align:center;font-family:verdana;color:blue; >
+  </a>
+  <font size="15" color="white" style="margin-top: 45px;"">
+    FONGFUNFRUIT
+  </font>
+  
+  <!-- Links -->
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+       <div align="right">
+      <div class="container">
+
+        <a href="{% url 'cart' %} "class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+        </a>
+        {% if user.is_authenticated %}
+          <a href="#" class="btn btn-info btn-lg" onclick="alert('Coming Soon')">
+            Hello : {{ user.username }}
+          </a>
+          <a href="{% url 'logout' %}" class="btn btn-info btn-lg">
+            Logout
+          </a>
+        {% else %}
+          <a href="{% url 'login_page' %}" class="btn btn-info btn-lg">
+            Login/Register
+          </a>
+        {% endif %}
+    </div>
+
+
+  </body>
+</html>
+
+
+
+</nav>
+
+<div class="container-fluid">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

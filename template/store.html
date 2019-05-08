@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block custom_css %}
+<style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+    
+    .price {
+      color: grey;
+      font-size: 22px;
+    }
+    
+    .card button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+    
+    .card button:hover {
+      opacity: 0.7;
+    }
+    
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-left: 15px !important;
+    }
+    
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      margin-right: 20px !important;
+    }
+    
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class='some-page-wrapper'>
+    {% for p in items %}
+      {% if forloop.counter0|divisibleby:"3" %}
+        <div class='row'>
+      {% endif %}
+      <div class='column'> 	
+        <div class="card2">
+          <img src="/media/{{p.image}}" alt="Denim Jeans" style="width:80%">
+          <h1>{{p.name}}</h1>
+          <p class="price">{{p.price}}-</p>
+          <p>{{p.description}}</p>
+          <p><button>Add to Cart</button></p>
+          <br>
+        </div>
+      </div>
+      {% if forloop.counter|divisibleby:"3" %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div><br>
+
+{% endblock %}
